@@ -1,5 +1,4 @@
 # APR2_backgammon
-zápočtová práce na předmět APR2 22/23
 
 Detailní přehled pravidel ke hře k náhlednutí [zde] (https://www.hazardni-hry.eu/kostky/vrhcaby-backgammon.html)
 
@@ -7,14 +6,14 @@ Detailní přehled pravidel ke hře k náhlednutí [zde] (https://www.hazardni-h
 ------------------------------------------------------------
 Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru proti jednoduché umělé inteligenci.
 
-###povinně implementovaná funkčnost:
-     generování hodu kostkami
-     výpis všech možných tahů hráče
-     jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
-     trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník
+######povinně implementovaná funkčnost:
+-generování hodu kostkami
+-výpis všech možných tahů hráče
+-jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
+     trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník.
      uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
 
-###co musí zobrazovat displej (výpis na standardním vstupu)
+######co musí zobrazovat displej (výpis na standardním vstupu)
      výsledky hodů kostkami
      pozice všech kamenů na desce (včetně těch "na baru")
      stručný komentář toho, co se ve hře událo a nemusí být zřejmé ze zobrazení na desce (kámen vstoupil do hry, byl "vyhozen", opustil hru, hráč nemůže hrát tj. ani házet, pod.)
@@ -24,11 +23,11 @@ Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru 
          počet kamenů vyhozených, vyvedených a opuštěných
          průměrná životnost kamene v tazích
 
-###nepovinná funkčnost:
+######nepovinná funkčnost:
 *GUI rozhraní
 *inteligentnější AI
 
-###implementované třídy:
+######implementované třídy:
 Hra (Herní deska)
 obsahuje:
         HerníPole (modifikovaný zásobník, lze vkládat jen kameny stejných barev)
@@ -44,14 +43,14 @@ odvozené třídy:
 Stručný popis zadání:
 Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru proti jednoduché umělé inteligenci.
 
-povinně implementovaná funkčnost:
+######povinně implementovaná funkčnost:
      generování hodu kostkami
      výpis všech možných tahů hráče
      jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
      trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník
      uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
 
-co musí zobrazovat displej (výpis na standardním vstupu)
+######co musí zobrazovat displej (výpis na standardním vstupu)
      výsledky hodů kostkami
      pozice všech kamenů na desce (včetně těch "na baru")
      stručný komentář toho, co se ve hře událo a nemusí být zřejmé ze zobrazení na desce (kámen vstoupil do hry, byl "vyhozen", opustil hru, hráč nemůže hrát tj. ani házet, pod.)
@@ -61,11 +60,11 @@ co musí zobrazovat displej (výpis na standardním vstupu)
          počet kamenů vyhozených, vyvedených a opuštěných
          průměrná životnost kamene v tazích
 
-nepovinná funkčnost:
+######nepovinná funkčnost:
      GUI rozhraní
      inteligentnější AI
 
-implementované třídy:
+#####implementované třídy:
 Hra (Herní deska)
 obsahuje:
         HerníPole (modifikovaný zásobník, lze vkládat jen kameny stejných barev)
