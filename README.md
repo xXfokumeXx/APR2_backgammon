@@ -2,16 +2,18 @@
 
 Detailní přehled pravidel ke hře k náhlednutí [zde] (https://www.hazardni-hry.eu/kostky/vrhcaby-backgammon.html)
 
-##Zadání seminární práce KI/(K)APR2 LS 2023
+Zadání seminární práce KI/(K)APR2 LS 2023
 ------------------------------------------------------------
 Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru proti jednoduché umělé inteligenci.
 
-######povinně implementovaná funkčnost:
--generování hodu kostkami
--výpis všech možných tahů hráče
--jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
-     trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník.
-     uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
+povinně implementovaná funkčnost:
+```
+generování hodu kostkami
+výpis všech možných tahů hráče
+jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
+trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník.
+uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
+```
 
 ######co musí zobrazovat displej (výpis na standardním vstupu)
      výsledky hodů kostkami
