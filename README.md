@@ -8,11 +8,11 @@ Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru 
 
 **povinně implementovaná funkčnost:**
 ```
-generování hodu kostkami
-výpis všech možných tahů hráče
-jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
-trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník.
-uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
+- generování hodu kostkami
+- výpis všech možných tahů hráče
+- jednoduchá umělá inteligence, která náhodně volí jeden z platných tahů
+- trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/vyvedení), herní pole se chovají jako zásobník.
+- uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
 ```
 
 **co musí zobrazovat displej (výpis na standardním vstupu)**
