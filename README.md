@@ -30,9 +30,9 @@ Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru 
 
 **implementované třídy:**
 - Hra (Herní deska)
-obsahuje: 1. HerníPole (modifikovaný zásobník, lze vkládat jen kameny stejných barev).
-          2. Dvojkostka (vrací seznam možných dvojic či čtveřic).
-          3. Bar (továrna na herní kameny, s řízenou produkcí).
+obsahuje: 1. HerníPole (modifikovaný zásobník, lze vkládat jen kameny stejných barev)  
+          2. Dvojkostka (vrací seznam možných dvojic či čtveřic)  
+          3. Bar (továrna na herní kameny, s řízenou produkcí)  
 - Herní kámen (s pamětí, kde se postupně nacházel)
 - Hráč: odvozené třídy: 1. KonzolovýHráč
                         2. AIHráč
