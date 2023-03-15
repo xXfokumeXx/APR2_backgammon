@@ -6,7 +6,7 @@ Zadání seminární práce KI/(K)APR2 LS 2023
 ------------------------------------------------------------
 Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru proti jednoduché umělé inteligenci.
 
-povinně implementovaná funkčnost:
+**povinně implementovaná funkčnost:**
 ```
 generování hodu kostkami
 výpis všech možných tahů hráče
@@ -15,15 +15,15 @@ trasování chodu každého jednotlivého kamene (od vstupu z baru po vyhození/
 uložení a obnova stavu hry (s návrhem vlastního JSON formátu pro uložení)
 ```
 
-######co musí zobrazovat displej (výpis na standardním vstupu)
-     výsledky hodů kostkami
-     pozice všech kamenů na desce (včetně těch "na baru")
-     stručný komentář toho, co se ve hře událo a nemusí být zřejmé ze zobrazení na desce (kámen vstoupil do hry, byl "vyhozen", opustil hru, hráč nemůže hrát tj. ani házet, pod.)
-     počet vyvedených kamenů
-     po výhře typ výhry
-     po ukončení se zobrazí statistika o všech kamenech ve hře (zvlášť pro bílého a černého), například:
-         počet kamenů vyhozených, vyvedených a opuštěných
-         průměrná životnost kamene v tazích
+**co musí zobrazovat displej (výpis na standardním vstupu)**
+- výsledky hodů kostkami
+- pozice všech kamenů na desce (včetně těch "na baru")
+- stručný komentář toho, co se ve hře událo a nemusí být zřejmé ze zobrazení na desce (kámen vstoupil do hry, byl "vyhozen", opustil hru, hráč nemůže hrát tj. ani házet, pod.)
+- počet vyvedených kamenů
+- po výhře typ výhry
+- po ukončení se zobrazí statistika o všech kamenech ve hře (zvlášť pro bílého a černého), například:
+     -počet kamenů vyhozených, vyvedených a opuštěných
+     -průměrná životnost kamene v tazích
 
 ######nepovinná funkčnost:
 *GUI rozhraní
