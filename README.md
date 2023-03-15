@@ -2,7 +2,7 @@
 
 Detailní přehled pravidel ke hře k náhlednutí [zde] (https://www.hazardni-hry.eu/kostky/vrhcaby-backgammon.html)
 
-Zadání seminární práce KI/(K)APR2 LS 2023
+Zadání seminární práce KI/(K)APR2 LS 2023  
 deadline September 2023.
 ------------------------------------------------------------
 Vytvořte implementaci hry vrhcáby, která podporuje hru dvou hráčů či hru proti jednoduché umělé inteligenci.
