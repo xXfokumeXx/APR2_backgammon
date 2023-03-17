@@ -1,6 +1,6 @@
 # APR2_backgammon
 
-Detailní přehled pravidel ke hře k náhlednutí [zde] (https://www.hazardni-hry.eu/kostky/vrhcaby-backgammon.html)
+Detailní přehled pravidel ke hře k náhlednutí [zde] (https://www.hazardni-hry.eu/kostky/vrhcaby-backgammon.html)  
 Kanban na [Trello] (https://trello.com/b/Vxy4ftZj/backgammon-2223)
 
 Zadání seminární práce KI/(K)APR2 LS 2023  
