@@ -39,3 +39,5 @@ obsahuje:
 - Hráč: odvozené třídy:  
 1. KonzolovýHráč  
 2. AIHráč
+
+ahoj jak se mas
