@@ -1,3 +1,3 @@
 print("Czešč")  # this function is printing "Czešč"
-def f(x):
-    return x
+def f(z):
+    return z
