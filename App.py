@@ -1,4 +1,5 @@
 import tkinter as tk
+from Config import *
 
 
 class App(tk.Tk):
@@ -8,7 +9,6 @@ class App(tk.Tk):
         self.title("Backgammon")
         self.resizable(False, False)
 
-        self.label = tk.Label(self, text="Hello world")
-        self.label.pack()
-
+        self.canvas = tk.Canvas(self, width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
+        self.canvas.pack()
 
