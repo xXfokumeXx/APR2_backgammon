@@ -1,5 +1,8 @@
 import tkinter as tk
+import math
+
 from Config import *
+from Point import *
 
 
 class App(tk.Tk):
@@ -17,3 +20,13 @@ class App(tk.Tk):
         self.centerBorder = self.canvas.create_rectangle(WINDOW_WIDTH / 2 - WINDOW_WIDTH / 30, 0,
                                                          WINDOW_WIDTH / 2 + WINDOW_WIDTH / 30,
                                                          WINDOW_HEIGHT, fill="#302b30")
+
+        self.points = []
+
+        isBlack = True
+        for row in range(2):
+            for column in range(12):
+                self.points.append(Point(column, row, "#211a21" if isBlack else "#695669", self.canvas))
+                isBlack = not isBlack
+            isBlack = not isBlack
+
