@@ -2,5 +2,5 @@
 /shelf/
 /workspace.xml
 /venv/
-game/__pycache__/
-game/__pycache__/*
+game_parts/__pycache__/
+game_parts/__pycache__/*
