@@ -10,3 +10,8 @@ class HerniPole:
         if len(self.stones) == 0:
             return True
     
+    def push(self, item):
+        self.stones.append(item)
+    
+    def pop(self):
+        self.stones.pop()
