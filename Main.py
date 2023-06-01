@@ -21,7 +21,9 @@ while True:
             for y in range(0, SCREEN_HEIGHT, RECT_HEIGHT):
                 rect = pygame.Rect(x, y, RECT_WIDTH , RECT_HEIGHT)
                 pygame.draw.rect(window, LIGHT_BROWN, rect, 1)
+      
     drawGrid()
+
     # vypsani fps na listu okna
     pygame.display.set_caption("FPS: " + str(clock.get_fps()))
     # vykreslení zmen na obrazovku
