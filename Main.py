@@ -1,25 +1,12 @@
 import pygame
-import sys
+import game_parts.herniDeska as hd
+import game_parts.herniPole as hp
+from game_parts.herniPole import HerniPole
 from game_parts.constants import *
+from game import Game
 
 # 3 - Initializer okna
 pygame.init()
-window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-clock = pygame.time.Clock()
 
-# podminky, kdy se ma okno zavrit
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT: 
-            pygame.quit() 
-            sys.exit()
-
-    window.fill(RICH_BROWN)
-
-    # vypsani fps na listu okna
-    pygame.display.set_caption("FPS: " + str(clock.get_fps()))
-    # vykreslení zmen na obrazovku
-    pygame.display.flip()
-
-    # "zpomalení" behu programu na FPS definované v constants.py
-    clock.tick(FRAMES_PER_SECOND)
+game = Game()
+game.run_game_loop()

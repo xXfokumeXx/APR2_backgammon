@@ -2,8 +2,10 @@
 
 class HerniPole:
 
-    def __init__(self, ID, stones = None):
+    def __init__(self, ID, x, y, stones = None):
         self.ID = ID
+        self.x = x
+        self.y = y
         self.stones = stones
         if not self.stones:
             self.stones = []
