@@ -1,7 +1,27 @@
-from App import App
+import pygame
+import sys
+from game_parts.constants import *
+from game_parts.play_table import *
 
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
+# 3 - Initializer okna
+pygame.init()
+window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+clock = pygame.time.Clock()
 
-#testing connected home pc
+# podminky, kdy se ma okno zavrit
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: 
+            pygame.quit() 
+            sys.exit()
+
+    window.fill(RICH_BROWN)
+
+    drawGrid()
+    # vypsani fps na listu okna
+    pygame.display.set_caption("FPS: " + str(clock.get_fps()))
+    # vykreslení zmen na obrazovku
+    pygame.display.flip()
+
+    # "zpomalení" behu programu na FPS definované v constants.py
+    clock.tick(FRAMES_PER_SECOND)
