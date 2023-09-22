@@ -1,14 +1,16 @@
 import pygame
 
 
-# konstant, ktere jsou nem2nn0 a budeme je pouzivat v dalsich castech programu
-RICH_BROWN = (219,140,44)
-LIGHT_BROWN = (225,175,113)
+# konstant, ktere jsou neměnné a budeme je pouzivat v dalsich castech programu
+RICH_BROWN = (222, 184, 135)
+LIGHT_BROWN = (139, 69, 19)
 DARK_BROWN = (92,59,18)
-SCREEN_WIDTH = 700
+SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 480
+BOARD_WIDTH = SCREEN_WIDTH - 200
+BOARD_HEIGHT = SCREEN_HEIGHT - 100
 FRAMES_PER_SECOND = 60
 
-ROW, COL = 2, 14  # standartní
-RECT_WIDTH = SCREEN_WIDTH//COL  # Výška jednoho pole pro hrací kámen
-RECT_HEIGHT = SCREEN_HEIGHT//ROW  # Šířka jednoho pole pro hrací kámen
+ROWS, COLS = 2, 12  # standartní
+RECT_WIDTH = BOARD_WIDTH//COLS  # Výška jednoho pole pro hrací kámen
+RECT_HEIGHT = BOARD_HEIGHT//ROWS  # Šířka jednoho pole pro hrací kámen
