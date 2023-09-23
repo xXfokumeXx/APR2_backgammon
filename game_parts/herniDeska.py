@@ -1,6 +1,6 @@
 import pygame
 from game_parts.herniPole import HerniPole
-from game_parts.constants import ROWS, COLS, RECT_HEIGHT, RECT_WIDTH, LIGHT_BROWN, DARK_BROWN, RICH_BROWN
+from game_parts.constants import ROWS, COLS, RECT_HEIGHT, RECT_WIDTH, LIGHT_BROWN, DARK_BROWN, RICH_BROWN, PADDING
 
 class HerniDeska:
 
@@ -13,12 +13,12 @@ class HerniDeska:
         
 
     def create_herni_deska(self, win):
-        """ vytvori herni desku slozenou z hernich polí implementovaných jako zásobníky"""
+        """pripravi na vykresleni herni desku slozenou z hernich polí implementovaných jako zásobníky"""
         i = 0
         for row in range(ROWS):
             for col in range(COLS):
-                x = 50 + col * RECT_WIDTH
-                y = 50 + row * RECT_HEIGHT
+                x = PADDING + col * RECT_WIDTH
+                y = PADDING + row * RECT_HEIGHT
                 ID = i
                 pole = HerniPole(ID, x, y)
                 print(pole.ID, pole.x, pole.y)

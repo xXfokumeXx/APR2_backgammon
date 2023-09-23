@@ -10,7 +10,10 @@ SCREEN_HEIGHT = 480
 BOARD_WIDTH = SCREEN_WIDTH - 200
 BOARD_HEIGHT = SCREEN_HEIGHT - 100
 FRAMES_PER_SECOND = 60
+PADDING = 50
 
 ROWS, COLS = 2, 12  # standartní
 RECT_WIDTH = BOARD_WIDTH//COLS  # Výška jednoho pole pro hrací kámen
 RECT_HEIGHT = BOARD_HEIGHT//ROWS  # Šířka jednoho pole pro hrací kámen
+
+#FONT = pygame.font.Font(None,  30)
