@@ -1,6 +1,7 @@
 import pygame
 from game_parts.herniPole import HerniPole
-from game_parts.constants import ROWS, COLS, RECT_HEIGHT, RECT_WIDTH, LIGHT_BROWN, DARK_BROWN,BLACK, RICH_BROWN, PADDING
+from game_parts.constants import *
+import game_parts.herniPole as hp
 
 class HerniDeska:
 
@@ -23,12 +24,7 @@ class HerniDeska:
                 pole = HerniPole(ID, x, y)
                 print(pole.ID, pole.x, pole.y)
                 self.hernideska.append(pole)
-                if row % 2 == 0:
-                    color = LIGHT_BROWN if col % 2 == 0 else DARK_BROWN
-                else:
-                    color = DARK_BROWN if col % 2 == 0 else LIGHT_BROWN
                 i += 1
-                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
         
             
             """ for col in range(COLS-8,COLS-7):
@@ -53,12 +49,8 @@ class HerniDeska:
                 pole = HerniPole(ID, x, y)
                 print(pole.ID, pole.x, pole.y)
                 self.hernideska.append(pole)
-                if row % 2 == 0:
-                    color = LIGHT_BROWN if col % 2 == 0 else DARK_BROWN
-                else:
-                    color = DARK_BROWN if col % 2 == 0 else LIGHT_BROWN
                 i += 1
-                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
+                
             
             """  for col in range(COLS-1,COLS):
                 x = PADDING + col * RECT_WIDTH
@@ -75,6 +67,22 @@ class HerniDeska:
                 pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
                 pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5) """
                 
+    def draw(self, win):
+        for pole in self.hernideska:
+            if pole.ID % 2 == 0:
+                color = LIGHT_BROWN
+            else:
+                color = DARK_BROWN
+            pygame.Surface.fill(win, color,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
+            pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=2)
+
+    #najdu pole podle pole.ID
+    def umisti_kamen(self, stone, pole_id):
+        for pole in self.hernideska:
+            if pole.ID == pole_id:
+                pole.set_stone(stone)
+                stone.position = (pole.x, pole.y)
+                break
 
     def __repr__(self):
         return f"{self.hernideska}"

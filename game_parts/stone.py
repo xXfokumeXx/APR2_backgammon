@@ -10,19 +10,19 @@ class Stone:
     def __init__(self, number, color):
         self.number = number
         self.color = color
-        self.kicked = False
         self.history = []
+        self.kicked = False
         self.position = None
     
     def move(self, pole):
         if isinstance(pole, HerniPole):
-            # Mark the current pole as visited
+            # prida aktuální pole do historie navštivených polí
             self.history.append(pole)
-            self.position = (pole.x, pole.y)  # Update the stone's position
+            self.position = (pole.x, pole.y)  #Update pozice kamene
             print(f"presun na pole {pole.ID}")
         else:
             print("neplatne pole.")
 
     def draw(self, win):
         if self.position:
-            pygame.draw.circle(win, self.color, self.position, STONE_RADIUS)
+            pygame.draw.circle(win, BLACK, self.position, STONE_RADIUS)
