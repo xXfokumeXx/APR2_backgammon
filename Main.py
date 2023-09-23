@@ -5,7 +5,7 @@ from game_parts.herniPole import HerniPole
 from game_parts.constants import *
 from game import Game
 
-# 3 - Initializer okna
+# 3 - Inicializer okna
 pygame.init()
 
 
