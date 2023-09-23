@@ -9,7 +9,7 @@ class Dvojkostka:
         for x in range(2):
             vrzene.append(random.randint(1,6))
         if vrzene[0] == vrzene[1]:
-            vrzene = vrzene.append(vrzene)
+            vrzene = [vrzene[0]] * 4
   
         print(vrzene)
     
