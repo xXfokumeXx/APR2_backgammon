@@ -1,4 +1,4 @@
-
+from game_parts.constants import *
 
 class HerniPole:
 
@@ -15,13 +15,11 @@ class HerniPole:
             return True
     
     def push(self, item):
-        # if not self.stones or item.color == self.stones[0].color:
         self.stones.append(item)
-        # else:
-            # ...
    
     def pop(self):
-        self.stones.pop()
+        if not self.is_empty():
+            self.stones.pop()
 
     def __repr__(self):
         return f"{self.ID} {self.stones}"
@@ -34,3 +32,14 @@ class HerniPole:
     def set_stone(self, stone):
         self.stone = stone  # polozim kámen
         stone.position = (self.x, self.y)  # update pozice kamene
+
+    def draw(self, win):
+        # Draw the stones within this pole
+        for i,stone in enumerate(self.stones):
+            # Calculate the position of each stone within the pole
+            stone_x = self.x + RECT_WIDTH/2  # Adjust this as needed
+            stone_y = self.y + STONE_RADIUS + i * STONE_RADIUS # Adjust this as needed
+
+
+            # Draw the stone at its position
+            stone.draw(win, stone_x, stone_y)

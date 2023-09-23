@@ -16,41 +16,14 @@ class Game:
         self.stones = []
         self.selecting = True
         self.selected_stone = None
-    #   self.stone = Stone(1, BLACK)
 
     def draw_objects(self):
         #vykresleni kamenu
         self.deska.draw(self.win)
+        for pole in self.deska.hernideska:
+            pole.draw(self.win)
         # vykreslení zmen na obrazovku
         pygame.display.flip()
-    
-    def selecting():
-        
-    
-        """     #funkce na overeni na co klikam
-    def click(self, event):
-        #pokud vybírám
-        if self.selecting:
-            #kontrola zda je kámen, respektive pole s nějakým kamenem vybráno
-            curs_x, curs_y = pygame.mouse.get_pos()
-            for stone in self.stones:
-                if stone.position and pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                    print("bez kamene")
-                #pygame.Rect(stone.position[0] - STONE_RADIUS, stone.position[1] - STONE_RADIUS, 2 * STONE_RADIUS, 2 * STONE_RADIUS).collidepoint(curs_x, curs_y):
-                    self.selected_stone = stone
-                    self.selecting_mode = False
-                    break
-        else:
-            # Check if a valid pole is clicked and move the stone
-            curs_x, curs_y = pygame.mouse.get_pos()
-            for pole in self.deska:
-                if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                    if pole.mozno_tahnout(self.selected_stone):
-                        self.selected_stone.move(pole)
-                        self.selected_stone = None
-                        self.selecting_mode = True
-                    break 
-        """
 
     # gameloop
     def run_game_loop(self):
@@ -68,7 +41,7 @@ class Game:
                     print(curs_x, curs_y)
                     for pole in self.deska:
                         if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                            print(f"pole.ID: {pole.ID}")
+                            print(f"pole.ID: {pole.ID} stones {pole.stones}")
 
 
             self.draw_objects()

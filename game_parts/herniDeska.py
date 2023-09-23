@@ -1,4 +1,5 @@
 import pygame
+import json
 from game_parts.herniPole import HerniPole
 from game_parts.constants import *
 import game_parts.herniPole as hp
@@ -12,8 +13,33 @@ class HerniDeska:
             self.hernideska = []
         self.win = win
         self.create_herni_deska(win)
-            
+
+    def load_board_from_json(self, json_file_path):
+        try:
+            with open(json_file_path, 'r') as file:
+                data = json.load(file)
+                board_data = data.get('board', [])
+
+                for i, point_data in enumerate(board_data):
+                    id = point_data.get("ID")
+                    player = point_data.get('color', 'none')
+                    count = point_data.get('count', 0)
+
+                    if player != 'none':
+                        stone_color = 'white' if player == 'white' else 'black'
+                        
+                        for _ in range(count):
+                            stone = Stone(i, stone_color)  # Create a stone object
+                            self.umisti_kamen(stone, i)  # Place the stone on the board
+                            
+
+        except FileNotFoundError:
+            print("Error: JSON file not found.")
+        except Exception as e:
+            print(f"Error loading JSON data: {str(e)}")
         
+
+
     def create_herni_deska(self, win):
         """pripravi na vykresleni herni desku slozenou z hernich polí implementovaných jako zásobníky"""
         i = 0
@@ -51,7 +77,7 @@ class HerniDeska:
                 i += 1
 
         for pole in self.hernideska:
-            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")    
+            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")
             
         """  for col in range(COLS-1,COLS):
                 x = PADDING + col * RECT_WIDTH
@@ -83,7 +109,7 @@ class HerniDeska:
             if pole.ID == pole_id:
                 pole.push(stone)
                 stone.position = (pole.ID, pole.x, pole.y)
-                break
+
 
     def __repr__(self):
         return f"{self.hernideska}"
@@ -98,6 +124,4 @@ class HerniDeska:
             self.current_index += 1
             return result
         else:
-            raise StopIteration
-
-        
+            raise StopIteration  

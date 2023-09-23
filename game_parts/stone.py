@@ -23,6 +23,9 @@ class Stone:
         else:
             print("neplatne pole.")
 
-    def draw(self, win):
+    def draw(self, win, x, y):
         if self.position:
-            pygame.draw.circle(win, BLACK, self.position, STONE_RADIUS)
+            stone_color = WHITE if self.color == 'white' else BLACK
+            pygame.draw.circle(win, stone_color, (x, y), STONE_RADIUS)
+            stone_color = BLACK if self.color == 'white' else WHITE
+            pygame.draw.circle(win, stone_color, (x, y), STONE_RADIUS*0.8)

@@ -1,15 +1,18 @@
 import pygame
 import game_parts.herniDeska as hd
 import game_parts.herniPole as hp
+import game
 from game_parts.herniPole import HerniPole
 from game_parts.constants import *
 from game import Game
 from game_parts.stone import *
 
 # 3 - Inicializer okna
-pygame.init()
 
+if __name__ == "__main__":
+    pygame.init()
 
-
-game = Game()
-game.run_game_loop()
+    # Load and place stones from the JSON file
+    game = Game()
+    game.deska.load_board_from_json("game_parts/newgame.json")
+    game.run_game_loop()
