@@ -31,6 +31,10 @@ class Game:
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     curs_x, curs_y = pygame.mouse.get_pos()
                     print(curs_x, curs_y)
+                    for pole in self.deska:
+                        if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
+                            print(f"pole.ID: {pole.ID}")
+
 
             self.draw_objects()
 
