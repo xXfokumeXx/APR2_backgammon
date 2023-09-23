@@ -34,11 +34,13 @@ class HerniPole:
         stone.position = (self.x, self.y)  # update pozice kamene
 
     def draw(self, win):
+
+        bottom_row_y = self.y - RECT_HEIGHT - STONE_RADIUS
         # Draw the stones within this pole
         for i,stone in enumerate(self.stones):
             # Calculate the position of each stone within the pole
             stone_x = self.x + RECT_WIDTH/2  # Adjust this as needed
-            stone_y = self.y + STONE_RADIUS + i * STONE_RADIUS # Adjust this as needed
+            stone_y = self.y - RECT_HEIGHT - STONE_RADIUS + i * STONE_RADIUS # Adjust this as needed
 
 
             # Draw the stone at its position
