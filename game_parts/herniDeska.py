@@ -10,7 +10,7 @@ class HerniDeska:
             self.hernideska = []
         self.win = win
         self.create_herni_deska(win)
-
+            
         
     def create_herni_deska(self, win):
         """pripravi na vykresleni herni desku slozenou z hernich polí implementovaných jako zásobníky"""
@@ -90,8 +90,5 @@ class HerniDeska:
             return result
         else:
             raise StopIteration
-
-# deska = HerniDeska()
-# print(deska)
 
         

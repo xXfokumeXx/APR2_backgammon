@@ -1,6 +1,7 @@
 import pygame
 import sys
 from game_parts.constants import *
+from game_parts.stone import *
 import game_parts.herniDeska as hd
 import game_parts.herniPole as hp
 
@@ -9,12 +10,15 @@ class Game:
 
 
     def __init__(self):
-        self.window = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.win = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
-        self.window.fill(RICH_BROWN)
-        self.deska = hd.HerniDeska(self.window)
+        self.win.fill(RICH_BROWN)
+        self.deska = hd.HerniDeska(self.win)
+        self.stone = Stone(1, "white")  # Create a stone
 
     def draw_objects(self):
+        #vykresleni kamenu
+        self.stone.draw(self.win)
         # vykreslení zmen na obrazovku
         pygame.display.flip()
 
