@@ -14,9 +14,9 @@ FRAMES_PER_SECOND = 60
 PADDING = 50
 
 
-ROWS, COLS = 2, 14  # standartní
-RECT_WIDTH = BOARD_WIDTH//COLS  # Výška jednoho pole pro hrací kámen
-RECT_HEIGHT = BOARD_HEIGHT//ROWS  # Šířka jednoho pole pro hrací kámen
-STONE_RADIUS = 10
+ROWS, COLS = 2, 14
+RECT_WIDTH = BOARD_WIDTH//COLS  # Šířka jednoho pole pro hrací kámen
+RECT_HEIGHT = BOARD_HEIGHT//ROWS  # Výška jednoho pole pro hrací kámen
+STONE_RADIUS = RECT_WIDTH//2
 
 #FONT = pygame.font.Font(None,  30)

@@ -2,6 +2,7 @@ import pygame
 from game_parts.herniPole import HerniPole
 from game_parts.constants import *
 import game_parts.herniPole as hp
+from game_parts.stone import *
 
 class HerniDeska:
 
@@ -22,7 +23,6 @@ class HerniDeska:
                 y = PADDING + row * RECT_HEIGHT
                 ID = i
                 pole = HerniPole(ID, x, y)
-                print(pole.ID, pole.x, pole.y)
                 self.hernideska.append(pole)
                 i += 1
         
@@ -47,12 +47,13 @@ class HerniDeska:
                 y = PADDING + row * RECT_HEIGHT
                 ID = i
                 pole = HerniPole(ID, x, y)
-                print(pole.ID, pole.x, pole.y)
                 self.hernideska.append(pole)
                 i += 1
-                
+
+        for pole in self.hernideska:
+            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")    
             
-            """  for col in range(COLS-1,COLS):
+        """  for col in range(COLS-1,COLS):
                 x = PADDING + col * RECT_WIDTH
                 y = PADDING + row * RECT_HEIGHT
                 ID = i
@@ -77,11 +78,11 @@ class HerniDeska:
             pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=2)
 
     #najdu pole podle pole.ID
-    def umisti_kamen(self, stone, pole_id):
+    def umisti_kamen(self, stone, pole_id:int):
         for pole in self.hernideska:
             if pole.ID == pole_id:
-                pole.set_stone(stone)
-                stone.position = (pole.x, pole.y)
+                pole.push(stone)
+                stone.position = (pole.ID, pole.x, pole.y)
                 break
 
     def __repr__(self):

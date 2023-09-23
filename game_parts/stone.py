@@ -17,7 +17,7 @@ class Stone:
     def move(self, pole):
         if isinstance(pole, HerniPole):
             # prida aktuální pole do historie navštivených polí
-            self.history.append(pole)
+            self.history.append(pole.ID)
             self.position = (pole.x, pole.y)  #Update pozice kamene
             print(f"presun na pole {pole.ID}")
         else:

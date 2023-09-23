@@ -10,9 +10,6 @@ from game_parts.stone import *
 pygame.init()
 
 
+
 game = Game()
-stone1 = Stone(1, BLACK)
-stone2 = Stone(2, BLACK)
-game.stones.append(stone1)
-game.stones.append(stone2)
 game.run_game_loop()

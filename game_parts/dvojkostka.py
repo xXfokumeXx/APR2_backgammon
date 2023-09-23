@@ -13,5 +13,5 @@ class Dvojkostka:
   
         print(vrzene)
     
-    hod_kostkou()
+    #hod_kostkou()
         
