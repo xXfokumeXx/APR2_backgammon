@@ -65,8 +65,6 @@ class HerniDeska:
                 bar = Bar(ID, x, y)
                 print(bar.ID, bar.x, bar.y)
                 self.hernideska.append(bar)
-                pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
-                pygame.draw.rect(win, BLACK, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5)
 
 
             for col in range(COLS-7,COLS-1):
@@ -104,6 +102,10 @@ class HerniDeska:
                 color = DARK_BROWN
             pygame.Surface.fill(win, color,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
             pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=2)
+            if pole.ID == -1:
+                pygame.Surface.fill(win, RICH_BROWN,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
+                pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=5)
+
 
     #najdu pole podle pole.ID
     def umisti_kamen(self, stone, pole_id:int):
