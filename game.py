@@ -16,6 +16,7 @@ class Game:
         self.stones = []
         self.selecting = True
         self.selected_stone = None
+        self.selected_pole = None
 
     def draw_objects(self):
         #vykresleni kamenu
@@ -24,6 +25,39 @@ class Game:
             pole.draw(self.win)
         # vykreslení zmen na obrazovku
         pygame.display.flip()
+
+    def click(self, event):
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            curs_x, curs_y = pygame.mouse.get_pos()
+            for pole in self.deska.hernideska:
+                if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
+                    """                     
+                    if self.selecting:
+                    """
+                    if self.selected_pole is None:
+                        if not pole.is_empty(): 
+                            self.selected_pole = pole
+                            self.selected_stone = pole.stones[-1]
+                            print(f"Selected stone: {self.selected_stone.number}, Color: {self.selected_stone.color}")
+                            self.selecting = True
+                        elif pole.is_empty():
+                            print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
+
+                    else:
+                        if pole != self.selected_pole:
+                            self.selected_stone.move(pole)
+                            self.selected_pole.stones.pop()  # popnu kamen z puvodni pozice   
+                        self.selected_pole = None
+                        self.selected_stone = None
+
+                    """  
+                        else:
+                        if pole.is_empty():
+                            print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
+                            self.selected_stone = None
+                            self.selecting = True 
+                        """
+                        
 
     # gameloop
     def run_game_loop(self):
@@ -35,13 +69,14 @@ class Game:
                 if event.type == pygame.QUIT: 
                     pygame.quit() 
                     sys.exit()
-                elif event.type == pygame.MOUSEBUTTONDOWN:
+                self.click(event)
+            """   elif event.type == pygame.MOUSEBUTTONDOWN:
                     # self.click(event)
-                    curs_x, curs_y = pygame.mouse.get_pos()
+                     curs_x, curs_y = pygame.mouse.get_pos()
                     print(curs_x, curs_y)
                     for pole in self.deska:
                         if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                            print(f"pole.ID: {pole.ID} stones {len(pole.stones)}")
+                            print(f"pole.ID: {pole.ID} stones {len(pole.stones)}") """
 
 
             self.draw_objects()

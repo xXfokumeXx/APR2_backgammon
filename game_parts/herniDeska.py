@@ -23,7 +23,7 @@ class HerniDeska:
         try:
             with open(json_file_path, 'r') as file:
                 data = json.load(file)
-                board_data = data.get('board', [])
+                board_data = data.get('board')
 
                 for i, point_data in enumerate(board_data):
                     id = point_data.get("ID")
@@ -34,8 +34,8 @@ class HerniDeska:
                         stone_color = 'white' if player == 'white' else 'black'
                         
                         for _ in range(count):
-                            stone = Stone(i, stone_color)  # Create a stone object
-                            self.umisti_kamen(stone, i)  # Place the stone on the board
+                            stone = Stone(i, stone_color)  # vytvori kamen
+                            self.umisti_kamen(stone, i)  # polozi kamen na herniDesku
                             
 
         except FileNotFoundError:
@@ -65,7 +65,7 @@ class HerniDeska:
                 bar = Bar(ID, x, y)
                 print(bar.ID, bar.x, bar.y)
                 self.hernideska.append(bar)
-                pygame.Surface.fill(win, LIGHT_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
+                pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
                 pygame.draw.rect(win, BLACK, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5)
 
 

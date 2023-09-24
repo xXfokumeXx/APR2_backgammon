@@ -5,6 +5,3 @@ class Bar(HerniPole):
 
     def __init__(self, ID, x, y):
         super().__init__(ID, x, y)
-    
-    def pop(self):
-        ...

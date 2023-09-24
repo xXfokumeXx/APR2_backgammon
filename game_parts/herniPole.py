@@ -34,8 +34,6 @@ class HerniPole:
         stone.position = (self.x, self.y)  # update pozice kamene
 
     def draw(self, win):
-
-        bottom_row_y = self.y - RECT_HEIGHT - STONE_RADIUS
         # vykresli kameny v poli
         for i,stone in enumerate(self.stones):
             # vypocet pozice v poli
