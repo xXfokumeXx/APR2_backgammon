@@ -41,7 +41,7 @@ class Game:
                     print(curs_x, curs_y)
                     for pole in self.deska:
                         if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                            print(f"pole.ID: {pole.ID} stones {pole.stones}")
+                            print(f"pole.ID: {pole.ID} stones {len(pole.stones)}")
 
 
             self.draw_objects()

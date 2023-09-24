@@ -4,6 +4,7 @@ from game_parts.herniPole import HerniPole
 from game_parts.constants import *
 import game_parts.herniPole as hp
 from game_parts.stone import *
+from .bar import Bar
 
 class HerniDeska:
 
@@ -13,6 +14,10 @@ class HerniDeska:
             self.hernideska = []
         self.win = win
         self.create_herni_deska(win)
+        """         
+        self.bar = Bar(-1, 1, 7)
+        self.hernideska.append(self.bar)
+        """
 
     def load_board_from_json(self, json_file_path):
         try:
@@ -52,22 +57,18 @@ class HerniDeska:
                 self.hernideska.append(pole)
                 i += 1
         
-            
-            """ for col in range(COLS-8,COLS-7):
+            # vykresleni Baru
+            for col in range(COLS-8,COLS-7):
                 x = PADDING + col * RECT_WIDTH
                 y = PADDING + row * RECT_HEIGHT
-                ID = i
-                pole = HerniPole(ID, x, y)
-                print(pole.ID, pole.x, pole.y)
-                self.hernideska.append(pole)
-                if row % 2 == 0:
-                    color = LIGHT_BROWN if col % 2 == 0 else BLACK
-                else:
-                    color = DARK_BROWN if col % 2 == 0 else BLACK
-                i += 1
-                pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
+                ID = -1
+                bar = Bar(ID, x, y)
+                print(bar.ID, bar.x, bar.y)
+                self.hernideska.append(bar)
+                pygame.Surface.fill(win, LIGHT_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
                 pygame.draw.rect(win, BLACK, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5)
- """
+
+
             for col in range(COLS-7,COLS-1):
                 x = PADDING + col * RECT_WIDTH
                 y = PADDING + row * RECT_HEIGHT
@@ -92,7 +93,8 @@ class HerniDeska:
                     color = DARK_BROWN if col % 2 == 0 else BLACK
                 i += 1
                 pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
-                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5) """
+                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5) 
+    """
                 
     def draw(self, win):
         for pole in self.hernideska:
