@@ -92,7 +92,8 @@ class HerniDeska:
                     color = DARK_BROWN if col % 2 == 0 else BLACK
                 i += 1
                 pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
-                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5) 
+                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5)
+                #"domecky" do kterých musí ideálně každý z hráču vyvést co nejvíce kamenů
     """
                 
     def draw(self, win):

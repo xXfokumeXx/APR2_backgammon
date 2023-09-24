@@ -48,8 +48,6 @@ class Game:
                             elif pole.is_empty():
                                 print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
 
-
-
                         else:
                             if pole.ID != -1 and pole != self.selected_pole:
                                 self.selected_stone.move(pole)
