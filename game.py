@@ -1,5 +1,6 @@
 import pygame
 import sys
+from player import Player
 from game_parts.constants import *
 from game_parts.stone import *
 import game_parts.herniDeska as hd
@@ -24,31 +25,36 @@ class Game:
         for pole in self.deska.hernideska:
             pole.draw(self.win)
         # vykreslení zmen na obrazovku
+        for stone in self.stones:
+            if stone.position:
+                stone.draw(self.win, stone.position[0], stone.position[1])
         pygame.display.flip()
+
+    def possible_moves(self):
+        
 
     def click(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             curs_x, curs_y = pygame.mouse.get_pos()
             for pole in self.deska.hernideska:
                 if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                    """                     
                     if self.selecting:
-                    """
-                    if self.selected_pole is None:
-                        if not pole.is_empty(): 
-                            self.selected_pole = pole
-                            self.selected_stone = pole.stones[-1]
-                            print(f"Selected stone: {self.selected_stone.number}, Color: {self.selected_stone.color}")
-                            self.selecting = True
-                        elif pole.is_empty():
-                            print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
+                        if self.selected_pole is None:
+                            if not pole.is_empty():
+                                self.selected_pole = pole
+                                self.selected_stone = pole.stones[-1]
+                                print(f"Selected stone: {self.selected_stone.number}, Color: {self.selected_stone.color}")
+                            elif pole.is_empty():
+                                print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
 
-                    else:
-                        if pole != self.selected_pole:
-                            self.selected_stone.move(pole)
-                            self.selected_pole.stones.pop()  # popnu kamen z puvodni pozice   
-                        self.selected_pole = None
-                        self.selected_stone = None
+
+
+                        else:
+                            if pole != self.selected_pole:
+                                self.selected_stone.move(pole)
+                                self.selected_pole.stones.pop()     
+                            self.selected_pole = None
+                            self.selected_stone = None
 
                     """  
                         else:

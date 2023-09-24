@@ -29,6 +29,7 @@ class HerniDeska:
                     id = point_data.get("ID")
                     player = point_data.get('color', 'none')
                     count = point_data.get('count', 0)
+                    print(id,player,count)
 
                     if player != 'none':
                         stone_color = 'white' if player == 'white' else 'black'
@@ -112,7 +113,7 @@ class HerniDeska:
         for pole in self.hernideska:
             if pole.ID == pole_id:
                 pole.push(stone)
-                stone.position = (pole.ID, pole.x, pole.y)
+                stone.position = (pole.x, pole.y)
 
 
     def __repr__(self):

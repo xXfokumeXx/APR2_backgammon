@@ -10,8 +10,9 @@ class Dvojkostka:
             vrzene.append(random.randint(1,6))
         if vrzene[0] == vrzene[1]:
             vrzene = [vrzene[0]] * 4
-  
         print(vrzene)
+        return (vrzene)
+  
     
-    #hod_kostkou()
+    hod_kostkou()
         

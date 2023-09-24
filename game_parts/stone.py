@@ -17,11 +17,13 @@ class Stone:
     
     def move(self, pole):
         if isinstance(pole, HerniPole):
-            # prida aktuální pole do historie navštivených polí
-            self.history.append(pole.ID)
-            #self.position = (pole.x, pole.y)  #Update pozice kamene
-            self.destPole = pole
-            print(f"presun na pole {pole.ID}")
+            if pole.ID != -1:
+                # prida aktuální pole do historie navštivených polí
+                self.history.append(pole.ID)
+                pole.push(self)
+                self.position = (pole.x, pole.y)
+                #self.position = (pole.x, pole.y)  #Update pozice kamene
+                print(f"presun kamene {self.number} na pole {pole.ID}")
         else:
             print("neplatne pole.")
 
@@ -31,3 +33,6 @@ class Stone:
             pygame.draw.circle(win, stone_color, (x, y), STONE_RADIUS)
             stone_color = WHITE if self.color == 'white' else BLACK
             pygame.draw.circle(win, stone_color, (x, y), STONE_RADIUS*0.8)
+
+    def __repr__(self):
+        return f"{self.number} {self.color}"
