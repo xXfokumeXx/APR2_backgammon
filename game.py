@@ -31,6 +31,7 @@ class Game:
         pygame.display.flip()
 
     def possible_moves(self):
+        ...
         
 
     def click(self, event):
@@ -50,9 +51,11 @@ class Game:
 
 
                         else:
-                            if pole != self.selected_pole:
+                            if pole.ID != -1 and pole != self.selected_pole:
                                 self.selected_stone.move(pole)
-                                self.selected_pole.stones.pop()     
+                                self.selected_pole.stones.pop()
+                            else:
+                                print("Nelze presunout hraci kameny na toto  herni pole! \nZkus tahnout na jine povolene pole")
                             self.selected_pole = None
                             self.selected_stone = None
 
