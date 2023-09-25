@@ -2,9 +2,9 @@ import random
 
 class Dvojkostka:
     def __init__(self):
-        self.kostka = Dvojkostka()
+        ...
 
-    def hod_kostkou():
+    def hod_kostkou(self):
         vrzene = []
         for x in range(2):
             vrzene.append(random.randint(1,6))

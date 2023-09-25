@@ -62,10 +62,11 @@ class HerniDeska:
             for col in range(COLS-8,COLS-7):
                 x = PADDING + col * RECT_WIDTH
                 y = PADDING + row * RECT_HEIGHT
-                ID = -1
+                ID = i
                 bar = Bar(ID, x, y)
                 print(bar.ID, bar.x, bar.y)
                 self.hernideska.append(bar)
+                i += 1
 
 
             for col in range(COLS-7,COLS-1):
@@ -76,8 +77,8 @@ class HerniDeska:
                 self.hernideska.append(pole)
                 i += 1
 
-        #for pole in self.hernideska:
-            #print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")
+        for pole in self.hernideska:
+            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")
             
         """  for col in range(COLS-1,COLS):
                 x = PADDING + col * RECT_WIDTH
@@ -104,7 +105,7 @@ class HerniDeska:
                 color = DARK_BROWN
             pygame.Surface.fill(win, color,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
             pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=2)
-            if pole.ID == -1:
+            if pole.ID == 6 or pole.ID == 19:
                 pygame.Surface.fill(win, RICH_BROWN,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
                 pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=5)
 

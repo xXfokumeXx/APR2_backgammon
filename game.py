@@ -20,6 +20,14 @@ class Game:
         self.selected_pole = None
         self.players = [Player("white"), Player("black")] 
         self.aktualni_hrac_i = 0
+        self.vytvor_kostku()
+
+    def vytvor_kostku(self):
+        for player in self.players:
+            player.create_kostka()
+
+    def hod_kostkou(self):
+        self.players[self.aktualni_hrac_i].hod_kostkou()
 
     def draw_objects(self):
         #vykresleni kamenu
@@ -38,6 +46,7 @@ class Game:
 
     def switch_player(self):
         self.aktualni_hrac_i = (self.aktualni_hrac_i + 1) % len(self.players)
+        self.hod_kostkou()
         print(self.aktualni_hrac_i)
         return self.aktualni_hrac_i
 
@@ -56,27 +65,26 @@ class Game:
                                 print("prazdne pole, nelze vybrat herni kamen, vyber jine pole")
 
                         else:
-                            if self.selected_pole.stones[-1].color == self.players[self.aktualni_hrac_i].color:
-                                if pole.ID != -1:
-                                    if pole != self.selected_pole: # and pole.stones[-1].color == self.selected_stone.color and len(pole.stones) <= 1
+                            if pole == self.selected_pole:
+                                self.selected_stone = None
+                                self.selected_pole = None
+                                self.click(event)
+                            elif self.selected_pole.stones[-1].color == self.players[self.aktualni_hrac_i].color:
+                                if pole.ID != 6 or pole.ID != 19:
+                                    if len(pole.stones) <= 1 or pole.stones[-1].color != self.selected_stone.color:
                                         self.selected_stone.move(pole)
                                         self.selected_pole.stones.pop()
                                     else:
-                                        print("Nelze tahnout na pozici odlisnou barvou kamenu a na pole s vetsim poctem kamenu nez 1")
+                                        print("Nelze tahnout na pozici s kameny odlišné barvy nebo na pole s více než 1 kamenem stejné barvy.")
+                                else:
+                                    print("Nelze presunout hraci kameny na toto herni pole! \nZkus tahnout na jine povolene pole")
+                                self.selected_pole = None
+                                self.selected_stone = None
+                                self.switch_player()
                             else:
-                                print("Nelze presunout hraci kameny na toto  herni pole! \nZkus tahnout na jine povolene pole")
-                            self.selected_pole = None
-                            self.selected_stone = None
-                            self.switch_player()
-
-                    """  
-                        else:
-                        if pole.is_empty():
-                            print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
-                            self.selected_stone = None
-                            self.selecting = True 
-                        """
-                        
+                                print("Nelze presunout hraci kameny na toto herni pole! \nZkus tahnout na jine povolene pole")
+                                self.selected_pole = None
+                                self.selected_stone = None                      
 
     # gameloop
     def run_game_loop(self):
@@ -89,15 +97,6 @@ class Game:
                     pygame.quit() 
                     sys.exit()
                 self.click(event)
-            """   elif event.type == pygame.MOUSEBUTTONDOWN:
-                    # self.click(event)
-                     curs_x, curs_y = pygame.mouse.get_pos()
-                    print(curs_x, curs_y)
-                    for pole in self.deska:
-                        if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
-                            print(f"pole.ID: {pole.ID} stones {len(pole.stones)}") """
-
-
             self.draw_objects()
 
 
