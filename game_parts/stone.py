@@ -13,7 +13,8 @@ class Stone:
         self.history = []
         self.kicked = False
         self.position = None
-        self.destPole = None
+        self.selected = False
+        self.selected_color = BLUE
     
     def move(self, pole):
         if isinstance(pole, HerniPole):
@@ -35,3 +36,4 @@ class Stone:
 
     def __repr__(self):
         return f"{self.number} {self.color}"
+

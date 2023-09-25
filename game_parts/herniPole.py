@@ -3,7 +3,7 @@ from game_parts.constants import *
 
 class HerniPole:
 
-    def __init__(self, ID, x, y, stones = None):
+    def __init__(self, ID, x, y, stones= None):
         self.ID = ID
         self.x = x
         self.y = y
@@ -11,9 +11,14 @@ class HerniPole:
         if not self.stones:
             self.stones = []
     
+        
+    
     def is_empty(self):
         if len(self.stones) == 0:
             return True
+        
+    def get_len(self):
+        return len(self.stones)
     
     def push(self, item):
         self.stones.append(item)
@@ -25,18 +30,18 @@ class HerniPole:
     def __repr__(self):
         return f"{self.ID} {self.stones}"
     
-    def mozno_tahnout(self):
+    """   def mozno_tahnout(self):
         # kontrola za je pole prazdne
         if self.is_empty():
             return True
         if not self.is_empty():
             return False
-        """ 
+         
             if len(other.stones) == 1 and self.selected_pole.stones[-1].color == self.players[self.aktualni_hrac_i].color:
                 return True
             else:
                 return False
-        """
+    """
 
     def set_stone(self, stone):
         self.stone = stone  # polozim kámen
@@ -52,3 +57,8 @@ class HerniPole:
 
             # nakresli kamen na sve pozici
             stone.draw(win, stone_x, stone_y)
+
+    def lze_vlozit_kamen(self, stone_color):
+        if len(self.stones) <= 1 or all(stone.color == stone_color for stone in self.stones):
+            return True
+        return False

@@ -5,6 +5,7 @@ from game_parts.constants import *
 import game_parts.herniPole as hp
 from game_parts.stone import *
 from .bar import Bar
+from .pit import Pit
 
 class HerniDeska:
 
@@ -74,25 +75,19 @@ class HerniDeska:
                 self.hernideska.append(pole)
                 i += 1
 
+            """ 
         for pole in self.hernideska:
-            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")
+            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y} len:{len(pole.stones)}") 
+            """
             
-        """  for col in range(COLS-1,COLS):
+            for col in range(COLS-1,COLS):
                 x = PADDING + col * RECT_WIDTH
                 y = PADDING + row * RECT_HEIGHT
                 ID = i
-                pole = HerniPole(ID, x, y)
-                print(pole.ID, pole.x, pole.y)
+                pole = Pit(ID, x, y)
                 self.hernideska.append(pole)
-                if row % 2 == 0:
-                    color = LIGHT_BROWN if col % 2 == 0 else BLACK
-                else:
-                    color = DARK_BROWN if col % 2 == 0 else BLACK
                 i += 1
-                pygame.Surface.fill(win, DARK_BROWN,pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT))
-                pygame.draw.rect(win, color, pygame.Rect(x, y, RECT_WIDTH, RECT_HEIGHT),width=5)
                 #"domecky" do kterých musí ideálně každý z hráču vyvést co nejvíce kamenů
-    """
                 
     def draw(self, win):
         for pole in self.hernideska:
@@ -102,7 +97,7 @@ class HerniDeska:
                 color = DARK_BROWN
             pygame.Surface.fill(win, color,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
             pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=2)
-            if pole.ID == 6 or pole.ID == 19:
+            if pole.ID == 6 or pole.ID == 20 or pole.ID == 13 or pole.ID == 27:
                 pygame.Surface.fill(win, RICH_BROWN,pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT))
                 pygame.draw.rect(win, BLACK, pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT),width=5)
 
