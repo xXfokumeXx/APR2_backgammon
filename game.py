@@ -19,8 +19,8 @@ class Game:
         self.selecting = True
         self.selected_stone = None
         self.selected_pole = None
-        self.players = [Player("white", [12,11,10,9,8,7,6,5,4,3,2,1,0,12,13,14,15,16,17,18,19,20,21,22,23,24]),
-                         Player("black", [24,23,22,21,20,19,18,17,16,15,14,13,12,0,1,2,3,4,5,6,7,8,9,10,11,12])] 
+        self.players = [Player("white", [12,11,10,9,8,7,5,4,3,2,1,0,14,15,16,17,18,19,21,22,23,24,25,26]),
+                         Player("black", [26,25,24,23,22,21,19,18,17,16,15,14,0,1,2,3,4,5,7,8,9,10,11,12])] 
         self.aktualni_hrac_i = random.randint(0,1)
         self.vytvor_kostku()
         
@@ -46,12 +46,16 @@ class Game:
 
     def switch_player(self):
         self.aktualni_hrac_i = (self.aktualni_hrac_i + 1) % len(self.players)
-        self.hod_kostkou()
         print(self.aktualni_hrac_i)
         return self.aktualni_hrac_i
 
     def click(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
+            aktualni_hrac = self.players[self.aktualni_hrac_i]
+            aktualni_hrac.hod_kostkou()
+            aktualni_pozice = aktualni_hrac.get_current_position()
+            hozena_cisla = aktualni_hrac.hozene
+            possible_moves = aktualni_hrac.create_poss_moves(aktualni_pozice, hozena_cisla)
             curs_x, curs_y = pygame.mouse.get_pos()
             for pole in self.deska.hernideska:
                 if pygame.Rect(pole.x, pole.y, RECT_WIDTH, RECT_HEIGHT).collidepoint(curs_x, curs_y):
@@ -60,8 +64,12 @@ class Game:
                             if not pole.is_empty():
                                 self.selected_pole = pole
                                 self.selected_stone = pole.stones[-1]
-                                
                                 print(f"Selected stone: {self.selected_stone.number}, Color: {self.selected_stone.color}")
+
+                                current_position = self.players[self.aktualni_hrac_i].get_current_position()
+                                hozena_cisla = self.players[self.aktualni_hrac_i].hozene
+                                possible_moves = self.players[self.aktualni_hrac_i].create_poss_moves(current_position, hozena_cisla)
+                                print("Possible Moves:", possible_moves)
                             else:
                                 print("prazdne pole, nelze vybrat herni kamen, vyber jine pole")
 
