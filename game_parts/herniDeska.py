@@ -76,8 +76,8 @@ class HerniDeska:
                 self.hernideska.append(pole)
                 i += 1
 
-        for pole in self.hernideska:
-            print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")
+        #for pole in self.hernideska:
+            #print(f"Pole ID: {pole.ID}, x: {pole.x}, y: {pole.y}")
             
         """  for col in range(COLS-1,COLS):
                 x = PADDING + col * RECT_WIDTH

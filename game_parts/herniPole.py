@@ -1,5 +1,6 @@
 from game_parts.constants import *
 
+
 class HerniPole:
 
     def __init__(self, ID, x, y, stones = None):
@@ -24,10 +25,18 @@ class HerniPole:
     def __repr__(self):
         return f"{self.ID} {self.stones}"
     
-    def mozno_tahnout(self, stones):
+    def mozno_tahnout(self):
         # kontrola za je pole prazdne
         if self.is_empty():
             return True
+        if not self.is_empty():
+            return False
+        """ 
+            if len(other.stones) == 1 and self.selected_pole.stones[-1].color == self.players[self.aktualni_hrac_i].color:
+                return True
+            else:
+                return False
+        """
 
     def set_stone(self, stone):
         self.stone = stone  # polozim kámen

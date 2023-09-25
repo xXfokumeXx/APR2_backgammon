@@ -2,7 +2,7 @@ import random
 
 class Dvojkostka:
     def __init__(self):
-        ...
+        self.kostka = Dvojkostka()
 
     def hod_kostkou():
         vrzene = []
@@ -12,7 +12,4 @@ class Dvojkostka:
             vrzene = [vrzene[0]] * 4
         print(vrzene)
         return (vrzene)
-  
-    
-    hod_kostkou()
         

@@ -18,6 +18,8 @@ class Game:
         self.selecting = True
         self.selected_stone = None
         self.selected_pole = None
+        self.players = [Player("white"), Player("black")] 
+        self.aktualni_hrac_i = 0
 
     def draw_objects(self):
         #vykresleni kamenu
@@ -32,7 +34,12 @@ class Game:
 
     def possible_moves(self):
         ...
-        
+
+
+    def switch_player(self):
+        self.aktualni_hrac_i = (self.aktualni_hrac_i + 1) % len(self.players)
+        print(self.aktualni_hrac_i)
+        return self.aktualni_hrac_i
 
     def click(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -45,17 +52,22 @@ class Game:
                                 self.selected_pole = pole
                                 self.selected_stone = pole.stones[-1]
                                 print(f"Selected stone: {self.selected_stone.number}, Color: {self.selected_stone.color}")
-                            elif pole.is_empty():
-                                print("prazdne pole, nelze vybrat herni kamen, vyber v jine pole")
+                            else:
+                                print("prazdne pole, nelze vybrat herni kamen, vyber jine pole")
 
                         else:
-                            if pole.ID != -1 and pole != self.selected_pole:
-                                self.selected_stone.move(pole)
-                                self.selected_pole.stones.pop()
+                            if self.selected_pole.stones[-1].color == self.players[self.aktualni_hrac_i].color:
+                                if pole.ID != -1:
+                                    if pole != self.selected_pole: # and pole.stones[-1].color == self.selected_stone.color and len(pole.stones) <= 1
+                                        self.selected_stone.move(pole)
+                                        self.selected_pole.stones.pop()
+                                    else:
+                                        print("Nelze tahnout na pozici odlisnou barvou kamenu a na pole s vetsim poctem kamenu nez 1")
                             else:
                                 print("Nelze presunout hraci kameny na toto  herni pole! \nZkus tahnout na jine povolene pole")
                             self.selected_pole = None
                             self.selected_stone = None
+                            self.switch_player()
 
                     """  
                         else:

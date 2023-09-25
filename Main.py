@@ -2,6 +2,7 @@ import pygame
 import game_parts.herniDeska as hd
 import game_parts.herniPole as hp
 import game
+import random
 from player import Player
 from game_parts.herniPole import HerniPole
 from game_parts.constants import *
@@ -16,7 +17,4 @@ if __name__ == "__main__":
     # Load and place stones from the JSON file
     game = Game()
     game.deska.load_board_from_json("game_parts/newgame.json")
-    player_black = Player("black")
-    player_white = Player("white")
-    players = [player_black, player_white]
     game.run_game_loop()
