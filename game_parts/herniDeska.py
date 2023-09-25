@@ -14,10 +14,7 @@ class HerniDeska:
             self.hernideska = []
         self.win = win
         self.create_herni_deska(win)
-        """         
-        self.bar = Bar(-1, 1, 7)
-        self.hernideska.append(self.bar)
-        """
+        self.load_board_from_json("game_parts/newgame.json")
 
     def load_board_from_json(self, json_file_path):
         try:

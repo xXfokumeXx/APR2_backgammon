@@ -16,5 +16,4 @@ if __name__ == "__main__":
 
     # Load and place stones from the JSON file
     game = Game()
-    game.deska.load_board_from_json("game_parts/newgame.json")
     game.run_game_loop()
